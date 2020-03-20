@@ -1,0 +1,42 @@
+﻿@page "/"
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-todo-input-wrap">
+            <div class="main-todo-input fl-wrap">
+                <div class="main-todo-input-item">
+                    <input type="text" id="todo-list-item" placeholder="What will you do today?" @bind-value="@Task">
+                </div>
+                <button class="add-items main-search-button" @onclick="AddItemClick">ADD</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <TodoList Items="@Items" />
+    </div>
+</div>
+
+@functions
+{
+    public List<TodoItem> Items { get; set; }
+
+    public string Task { get; set; }
+
+    public void AddItemClick(MouseEventArgs evt)
+    {
+        if (!string.IsNullOrEmpty(Task))
+        {
+            Items.Add(new TodoItem(Task));
+            Task = string.Empty;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        if (Items == null)
+            Items = new List<TodoItem>();
+        base.OnInitialized();
+    }
+}

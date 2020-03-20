@@ -1,0 +1,45 @@
+﻿<div class="main-todo-input-wrap">
+    <div class="main-todo-input fl-wrap todo-listing">
+        <ul id="list-items">
+            @if (Items != null && Items.Count > 0)
+            {
+                @foreach (var item in Items)
+                {
+                    <li>
+                        <input class="checkbox" type="checkbox" @onchange="@OnItemChanged" checked="checked" @attributes="@GetAttribute(item)" />
+                        <span class="todo-text">@item.Task</span>
+                        <a class="remove text-right">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                        <hr>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+@functions
+{
+    public IEnumerable<KeyValuePair<string, object>> CheckedAttributes => new List<KeyValuePair<string, object>>()
+{
+        new KeyValuePair<string, object>("checked", "checked"),
+        new KeyValuePair<string, object>("class", "checkbox completed"),
+    };
+
+    public IEnumerable<KeyValuePair<string, object>> EmptyAttributes => new List<KeyValuePair<string, object>>()
+    {
+        new KeyValuePair<string, object>("class", "checkbox"),
+    };
+
+    private IEnumerable<KeyValuePair<string, object>> GetAttribute(TodoItem item) => item.Done ? CheckedAttributes : EmptyAttributes;
+
+    [Parameter]
+    public IList<TodoItem> Items { get; set; }
+
+    public EventCallback<MouseEventArgs> ItemClick { get; set; }
+
+    public void OnItemChanged(ChangeEventArgs evt)
+    {
+    }
+}
