@@ -1,3 +1,3 @@
-﻿# Markdown File
+﻿# Todo list app in Blazor
 
-Layout from https://bbbootstrap.com/snippets/todo-list-template-local-storage-10214124
+Layout based on https://bbbootstrap.com/snippets/todo-list-template-local-storage-10214124
