@@ -10,12 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "bootstrap-colorpicker": "^3.2.0",
-    "bootstrap-tagsinput": "^0.7.1",
-    "jquery": "^3.4.1",
-    "jquery-ui": "^1.12.1",
-    "@fortawesome/fontawesome-free": "^5.11.2"
+    "bootstrap": "^4.3.1"
   },
   "devDependencies": {
     
