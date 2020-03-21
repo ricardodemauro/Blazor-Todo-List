@@ -357,4 +357,4 @@ MigrationBackup/
 .ionide/
 
 # ignore libs folder
-wwwroot/lib
+*/wwwroot/lib
